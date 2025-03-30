@@ -19,52 +19,46 @@ graph
     .attr("stroke-width", 3);
 
 // Base line at the top
-graph.append("line")
-    .attr('x1',origin.x)
-    .attr('y1',match_rect.y)
-    .attr('x2',dimensions.width)
-    .attr('y2',match_rect.y)
-    .attr('stroke', '#111')
+// graph.append("line")
+//     .attr('x1',origin.x)
+//     .attr('y1',match_rect.y)
+//     .attr('x2',dimensions.width)
+//     .attr('y2',match_rect.y)
+//     .attr('stroke', '#111')
 
 graph.append("text")
     .attr('x', match_rect.x+10 )
-    .attr('y', 90 )
+    .attr('y', match_rect.y - 10 )
     .text("Match Details")
     .attr("font-family", "monospace")
     .attr("font-size", "10px");
 
-// Over 
+// Over legend - 5, 10, 15, 20
+
+for (let over_notifier = 0; over_notifier < 20; over_notifier++) {
+
+    if ((over_notifier +1)  ===6 || (over_notifier +1)  ===15 || (over_notifier +1)  ===20)  {
+        // First innings
+        graph.append("text")
+            .attr('x', match_rect.x - ((over_notifier + 1) * over_rect.width) + 10)
+            .attr('y', match_rect.y - 10)
+            .text(over_notifier + 1)
+            .attr("font-family", "monospace")
+            .attr("font-size", "10px");
+
+        // Second innings
+        graph.append("text")
+            .attr('x', match_rect.x + ((over_notifier + 1) * over_rect.width) + 80)
+            .attr('y', match_rect.y - 10)
+            .text(over_notifier + 1)
+            .attr("font-family", "monospace")
+            .attr("font-size", "10px");
+
+    }
+}
 
 
-graph.append("text")
-    .attr('x', match_rect.x - 140 )
-    .attr('y', 90 )
-    .text("5")
-    .attr("font-family", "monospace")
-    .attr("font-size", "10px");
-
-graph.append("text")
-    .attr('x', match_rect.x - 290 )
-    .attr('y', 90 )
-    .text("10")
-    .attr("font-family", "monospace")
-    .attr("font-size", "10px");
-
-graph.append("text")
-    .attr('x', match_rect.x - 440 )
-    .attr('y', 90 )
-    .text("15")
-    .attr("font-family", "monospace")
-    .attr("font-size", "10px");
-
-
-graph.append("text")
-    .attr('x', match_rect.x - 590 )
-    .attr('y', 90 )
-    .text("20")
-    .attr("font-family", "monospace")
-    .attr("font-size", "10px");
-
+/* */
 
 // Rectangles for each match
 for(let j=0; j<70;j++)
@@ -119,4 +113,4 @@ for(let j=0; j<70;j++)
 
         }
     }
-
+/**/
