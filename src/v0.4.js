@@ -34,6 +34,8 @@ graph
     .attr("y", 18)
     .attr("width", 125)
     .attr("height", 40)
+    .attr('rx',5)
+    .attr('ry',5)
     .attr("fill", "#ADD8E6")
     .attr("stroke", "#111")
     .attr("stroke-width", 0.8);
@@ -89,53 +91,109 @@ graph.append("text")
 
 /* LEgend Runs scored  */
 
+graph
+    .append("rect")
+    .attr("x", 85)
+    .attr("y", 10)
+    .attr("width", 180)
+    .attr("height", 60)
+    .attr('rx',5)
+    .attr('ry',5)
+    .attr("fill", "#ADD8E6")
+    .attr("stroke", "#111")
+    .attr("stroke-width", 0.8);
+
 graph.append("text")
-    .attr('x', 100 )
-    .attr('y', 30 )
+    .attr('x', 110 )
+    .attr('y', 22 )
     .text("Runs Scored in an Over")
     .attr("font-family", "monospace")
     .attr("font-size", "10px");
 
 graph.append("rect")
     .attr('x',90 )
-    .attr('y',35 )
-    .attr('width',over_rect.width)
-    .attr('height', match_rect.height)
-    .attr('rx',over_rect.curve)
-    .attr('ry',over_rect.curve)
+    .attr('y',30 )
+    .attr('width',over_rect.width * 0.8)
+    .attr('height', match_rect.height * 0.8)
+    .attr('rx',over_rect.curve * 0.8)
+    .attr('ry',over_rect.curve * 0.8)
     .attr("fill", runScoredColor(1) )
     .attr('stroke', '#111')
 
+graph.append("text")
+    .attr('x', 100)
+    .attr('y', 50)
+    .text('1')
+    .attr("font-family", "monospace")
+    .attr("font-size", "10px");
+
 graph.append("rect")
     .attr('x',90 + over_rect.width + over_rect.offset )
-    .attr('y',35 )
-    .attr('width',over_rect.width)
-    .attr('height', match_rect.height)
-    .attr('rx',over_rect.curve)
-    .attr('ry',over_rect.curve)
+    .attr('y',30 )
+    .attr('width',over_rect.width * 0.8)
+    .attr('height', match_rect.height * 0.8)
+    .attr('rx',over_rect.curve * 0.8)
+    .attr('ry',over_rect.curve * 0.8)
     .attr("fill", runScoredColor(6) )
     .attr('stroke', '#111')
 
-graph.append("rect")
-    .attr('x',90 + (over_rect.width  + over_rect.offset) * 2 )
-    .attr('y',35 )
-    .attr('width',over_rect.width)
-    .attr('height', match_rect.height)
-    .attr('rx',over_rect.curve)
-    .attr('ry',over_rect.curve)
-    .attr("fill", runScoredColor(12) )
-    .attr('stroke', '#111')
+graph.append("text")
+    .attr('x', 90 + (over_rect.width  + over_rect.offset) + 8 )
+    .attr('y', 50)
+    .text('6')
+    .attr("font-family", "monospace")
+    .attr("font-size", "10px");
 
 graph.append("rect")
     .attr('x',90 + (over_rect.width  + over_rect.offset) * 2 )
-    .attr('y',35 )
-    .attr('width',over_rect.width)
-    .attr('height', match_rect.height)
-    .attr('rx',over_rect.curve)
-    .attr('ry',over_rect.curve)
+    .attr('y',30 )
+    .attr('width',over_rect.width * 0.8)
+    .attr('height', match_rect.height * 0.8)
+    .attr('rx',over_rect.curve * 0.8)
+    .attr('ry',over_rect.curve * 0.8)
     .attr("fill", runScoredColor(12) )
     .attr('stroke', '#111')
 
+graph.append("text")
+    .attr('x', 90 + (over_rect.width  + over_rect.offset) * 2 + 8)
+    .attr('y', 50)
+    .text('12')
+    .attr("font-family", "monospace")
+    .attr("font-size", "10px");
+
+graph.append("rect")
+    .attr('x',90 + (over_rect.width  + over_rect.offset) * 3 )
+    .attr('y',30 )
+    .attr('width',over_rect.width * 0.8)
+    .attr('height', match_rect.height * 0.8)
+    .attr('rx',over_rect.curve * 0.8)
+    .attr('ry',over_rect.curve * 0.8)
+    .attr("fill", runScoredColor(24) )
+    .attr('stroke', '#111');
+
+graph.append("text")
+    .attr('x', 90 + (over_rect.width  + over_rect.offset) * 3  + 8)
+    .attr('y', 50)
+    .text('24')
+    .attr("font-family", "monospace")
+    .attr("font-size", "10px");
+
+graph.append("rect")
+    .attr('x',90 + (over_rect.width  + over_rect.offset) * 4 )
+    .attr('y',30 )
+    .attr('width',over_rect.width * 0.8)
+    .attr('height', match_rect.height * 0.8)
+    .attr('rx',over_rect.curve * 0.8)
+    .attr('ry',over_rect.curve * 0.8)
+    .attr("fill", runScoredColor(36) )
+    .attr('stroke', '#111');
+
+graph.append("text")
+    .attr('x', 90 + (over_rect.width  + over_rect.offset) * 4  + 8)
+    .attr('y', 50)
+    .text('36')
+    .attr("font-family", "monospace")
+    .attr("font-size", "10px");
 // End of Legends
 
 graph.append("text")
@@ -229,7 +287,7 @@ d3.json("./data/1.json").then((data) => {
                                 .style("top", event.pageY + "px")
                                 // .style("display", "inline-block")
                                 .html(
-                                "<b>" + data[+match+1]['team1'] + " vs " + data[+match+1]['team2']+ "</b>" +
+                                "<b>" + data[+match+1]['team1']+"</b>"+" vs " +"<b>"+ data[+match+1]['team2']+ "</b>" +
                                 "</br><b>Over:</b>" + +innings_details[0]['over_by_over'][over]['over_num'] +
                                 "</br><b>Batting:</b>" + data[+match+1]['team1'] +
                                 "</br><b>Scored :</b>" + total_runs +
@@ -237,6 +295,9 @@ d3.json("./data/1.json").then((data) => {
 
                                 );
                             })
+                        .on("mouseout", function (d) {
+                            tip.style("opacity", 0);
+                            });
 
                     if (innings_details[0]['over_by_over'][over]['wkt'] >0){
 
@@ -277,13 +338,16 @@ d3.json("./data/1.json").then((data) => {
                                 .style("top", event.pageY + "px")
                                 // .style("display", "inline-block")
                                 .html(
-                                "<b>" + data[+match+1]['team1'] + " vs " + data[+match+1]['team2']+ "</b>" +
+                                "<b>" + data[+match+1]['team1']+ "</b>"+" vs "+"<b>"+ data[+match+1]['team2']+ "</b>" +
                                 "</br><b>Batting:</b>" + data[+match+1]['team2'] +
                                 "</br><b>Scored :</b>" + total_runs +
                                 "</br><b>Wickets:</b>" + wkt
 
                                 );
                             })
+                        .on("mouseout", function (d) {
+                            tip.style("opacity", 0);
+                            });
 
                     if (innings_details[1]['over_by_over'][over]['wkt'] >0){
 
