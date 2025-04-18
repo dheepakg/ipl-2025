@@ -1,0 +1,10 @@
+[project]
+name = "IPL-2025"
+version = "0.1"
+description = "Visualize IPL 2025 data"
+readme = { file = "README.txt", content-type = "text/markdown" }
+license-files = ["LICEN[CS]E*", "vendored/licenses/*.txt", "AUTHORS.md"]
+keywords = ["ipl", "dataviz", "cricket", "sports"]
+dependencies = [
+    "ruff>=0.11.6",
+]
