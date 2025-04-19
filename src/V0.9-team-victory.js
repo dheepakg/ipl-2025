@@ -193,7 +193,7 @@ for (let over_notifier = 0; over_notifier < 20; over_notifier++) {
 }
 
 
-d3.json("./data/2.json").then((data) => {
+d3.json("./data/result.json").then((data) => {
 
     number_of_matches = Object.keys(data)
 
