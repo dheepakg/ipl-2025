@@ -1,7 +1,7 @@
 // create svg element
-var svg = d3.select(".canvas").append("svg").attr("width", 1500).attr("height", 600);
+var svg = d3.select(".canvas").append("svg").attr("width", 1500).attr("height", 2000);
 
-dimensions  =   {   width: 1350, height:500, curve:5,
+dimensions  =   {   width: 1350, height:1800, curve:5,
                     origin: {x: 30, y: 50 },
                     over_rect: {height:30, width: 30, curve:10, offset:6 },
                     match_rect: {x:630, y: 50+50, offset:2 ,spacing:10 , width:100, height:40},
@@ -248,7 +248,7 @@ d3.json("./data/result.json").then((data) => {
             innings_details = data[+match+1]['details']
 
             if(innings_details[0]['innings']===1){
-
+                let battingTeam = innings_details[0]['batting_team'];
 
                 let teamColor = getTeamColor(data[+match+1]['team1']);
                 console.log('log1 ',teamColor, getTeamColor(data[+match+1]['team1']))
@@ -276,11 +276,9 @@ d3.json("./data/result.json").then((data) => {
                                 .style("left", event.pageX  + "px")
                                 .style("top", event.pageY + "px")
                                 .html(
-                                "<b>" + data[+match+1]['team1']['name']+"</b>"+" vs " +"<b>"+ data[+match+1]['team2']['name']+ "</b>" +
+                                "<b>" +"Batting"+ "</b> :"+ battingTeam +
                                 "</br><b>Over:</b>" +  over_num +
-                                "</br><b>Batting:</b>" + data[+match+1]['team1']['name'] +
-                                "</br><b>Scored :</b>" + total_runs +
-                                "</br><b>Wickets:</b>" + wkt
+                                "</br><b>Score:</b>" + total_runs + "/" + wkt
 
                                 );
                             })
@@ -308,7 +306,8 @@ d3.json("./data/result.json").then((data) => {
 
             if(innings_details[1]['innings']===2){
                 teamName = data[+match+1]['team2'];
-                console.log('log2 ',teamName, getTeamColor(teamName))
+                let battingTeam = innings_details[1]['batting_team'];
+                console.log('log2 ',battingTeam)
                 let teamColor = getTeamColor(teamName);
                 var runScoredByTeamColor  = d3.scaleLinear().domain([runs.min, runs.max])
                         .range(["white", teamColor]);
@@ -334,12 +333,9 @@ d3.json("./data/result.json").then((data) => {
                                 .style("left", event.pageX  + "px")
                                 .style("top", event.pageY + "px")
                                 .html(
-                                "<b>" + data[+match+1]['team1']['name']+ "</b>"+" vs "+"<b>"+ data[+match+1]['team2']['name']+ "</b>" +
+                                "<b>" +"Batting"+ "</b> :"+ battingTeam +
                                 "</br><b>Over:</b>" +  over_num +
-                                "</br><b>Batting:</b>" + data[+match+1]['team2']['name'] +
-                                "</br><b>Scored :</b>" + total_runs +
-                                "</br><b>Wickets:</b>" + wkt
-
+                                "</br><b>Score:</b>" + total_runs + "/" + wkt
                                 );
                             })
                         .on("mouseout", function (d) {
