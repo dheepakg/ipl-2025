@@ -3894,7 +3894,7 @@
             }
         ]
     },
-    "19": {
+    "21": {
         "venue": "Eden Gardens, Kolkata",
         "team1": {
             "name": "LSG",
@@ -4119,15 +4119,15 @@
             }
         ]
     },
-    "20": {
+    "19": {
         "venue": "Rajiv Gandhi International Stadium, Uppal, Hyderabad",
         "team1": {
             "name": "SRH",
-            "winner": true
+            "winner": false
         },
         "team2": {
             "name": "GT",
-            "winner": false
+            "winner": true
         },
         "details": [
             {
@@ -4329,7 +4329,7 @@
             }
         ]
     },
-    "21": {
+    "20": {
         "venue": "Wankhede Stadium, Mumbai",
         "team1": {
             "name": "RCB",
@@ -5008,11 +5008,11 @@
         "venue": "M Chinnaswamy Stadium, Bengaluru",
         "team1": {
             "name": "RCB",
-            "winner": true
+            "winner": false
         },
         "team2": {
             "name": "DC",
-            "winner": false
+            "winner": true
         },
         "details": [
             {
@@ -5223,11 +5223,11 @@
         "venue": "MA Chidambaram Stadium, Chepauk, Chennai",
         "team1": {
             "name": "CSK",
-            "winner": true
+            "winner": false
         },
         "team2": {
             "name": "KKR",
-            "winner": false
+            "winner": true
         },
         "details": [
             {
@@ -5402,12 +5402,12 @@
     "26": {
         "venue": "Bharat Ratna Shri Atal Bihari Vajpayee Ekana Cricket Stadium, Lucknow",
         "team1": {
-            "name": "LSG",
-            "winner": true
-        },
-        "team2": {
             "name": "GT",
             "winner": false
+        },
+        "team2": {
+            "name": "LSG",
+            "winner": true
         },
         "details": [
             {
@@ -5627,12 +5627,12 @@
     "27": {
         "venue": "Rajiv Gandhi International Stadium, Uppal, Hyderabad",
         "team1": {
-            "name": "SRH",
-            "winner": true
-        },
-        "team2": {
             "name": "PBKS",
             "winner": false
+        },
+        "team2": {
+            "name": "SRH",
+            "winner": true
         },
         "details": [
             {
@@ -5848,11 +5848,11 @@
         "venue": "Sawai Mansingh Stadium, Jaipur",
         "team1": {
             "name": "RR",
-            "winner": true
+            "winner": false
         },
         "team2": {
             "name": "RCB",
-            "winner": false
+            "winner": true
         },
         "details": [
             {
@@ -6283,11 +6283,11 @@
         "venue": "Bharat Ratna Shri Atal Bihari Vajpayee Ekana Cricket Stadium, Lucknow",
         "team1": {
             "name": "LSG",
-            "winner": true
+            "winner": false
         },
         "team2": {
             "name": "CSK",
-            "winner": false
+            "winner": true
         },
         "details": [
             {
@@ -6918,11 +6918,11 @@
         "venue": "Wankhede Stadium, Mumbai",
         "team1": {
             "name": "SRH",
-            "winner": true
+            "winner": false
         },
         "team2": {
             "name": "MI",
-            "winner": false
+            "winner": true
         },
         "details": [
             {
