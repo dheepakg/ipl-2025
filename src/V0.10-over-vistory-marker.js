@@ -1,5 +1,5 @@
 // create svg element
-var svg = d3.select(".canvas").append("svg").attr("width", 1500).attr("height", 2000);
+var svg = d3.select(".canvas").append("svg").attr("width", 1400).attr("height", 2000);
 
 dimensions  =   {   width: 1350, height:1800, curve:5,
                     origin: {x: 30, y: 50 },
@@ -39,6 +39,8 @@ color = {   border:'#111',
                 GT:  '#1B2133',
             }
         };
+
+
 
 const graph = svg.append("g").attr("width", dimensions.width+100).attr("height", dimensions.height);
 
@@ -227,7 +229,7 @@ d3.json("./data/result.json").then((data) => {
 
 
     for(let match in number_of_matches){
-        console.log( data[+match+1]['team2'])
+
 
         // Box: Match
         graph.append("rect")
@@ -240,12 +242,7 @@ d3.json("./data/result.json").then((data) => {
             .attr('rx',dimensions.over_rect.curve)
             .attr('ry',dimensions.over_rect.curve);
 
-        // graph.append("svg:image")
-        //     .attr('x', 635)
-        //     .attr('y', 110)
-        //     .attr('width', 15)
-        //     .attr('height', 20)
-        //     .attr("xlink:href", "../finish.png")
+
         if (data[+match+1]['team1']['winner'] === true){
             showWinner(dimensions.match_rect.x+5,
                 dimensions.match_rect.y + ((+match * 2)+ dimensions.match_rect.offset) + (+match* dimensions.match_rect.height) + (dimensions.match_rect.height/2) - 10);
@@ -279,7 +276,7 @@ d3.json("./data/result.json").then((data) => {
                 let battingTeam = innings_details[0]['batting_team'];
 
                 let teamColor = getTeamColor(data[+match+1]['team1']);
-                console.log('log1 ',teamColor, getTeamColor(data[+match+1]['team1']))
+
                 var runScoredByTeamColor  = d3.scaleLinear().domain([runs.min, runs.max])
                         .range(["white", teamColor]);
 
@@ -304,10 +301,9 @@ d3.json("./data/result.json").then((data) => {
                                 .style("left", event.pageX  + "px")
                                 .style("top", event.pageY + "px")
                                 .html(
-                                "<b>" +"Batting"+ "</b> :"+ battingTeam +
+                                "<b>" +"Batting"+ "</b>:"+ battingTeam +
                                 "</br><b>Over:</b>" +  over_num +
                                 "</br><b>Score:</b>" + total_runs + "/" + wkt
-
                                 );
                             })
                         .on("mouseout", function (d) {
@@ -335,7 +331,7 @@ d3.json("./data/result.json").then((data) => {
             if(innings_details[1]['innings']===2){
                 teamName = data[+match+1]['team2'];
                 let battingTeam = innings_details[1]['batting_team'];
-                console.log('log2 ',battingTeam)
+
                 let teamColor = getTeamColor(teamName);
                 var runScoredByTeamColor  = d3.scaleLinear().domain([runs.min, runs.max])
                         .range(["white", teamColor]);
@@ -352,7 +348,6 @@ d3.json("./data/result.json").then((data) => {
                         .attr('rx',dimensions.over_rect.curve)
                         .attr('ry',dimensions.over_rect.curve)
                         .attr("fill", runScoredColor(innings_details[1]['over_by_over'][over]['total_runs']) )
-                        // .attr("fill", runScoredByTeamColor(+innings_details[1]['over_by_over'][over]['total_runs']) )
                         .attr('stroke', color.border)
                         .on("mouseover", function (event, d) {
 
@@ -361,7 +356,7 @@ d3.json("./data/result.json").then((data) => {
                                 .style("left", event.pageX  + "px")
                                 .style("top", event.pageY + "px")
                                 .html(
-                                "<b>" +"Batting"+ "</b> :"+ battingTeam +
+                                "<b>" +"Batting"+ "</b>:"+ battingTeam +
                                 "</br><b>Over:</b>" +  over_num +
                                 "</br><b>Score:</b>" + total_runs + "/" + wkt
                                 );
@@ -371,7 +366,7 @@ d3.json("./data/result.json").then((data) => {
                             });
 
                     if (innings_details[1]['over_by_over'][over]['wkt'] >0){
-                        // console.log(team1)
+
                         graph.append('circle')
                             .attr('cx',dimensions.match_rect.x + dimensions.match_rect.width  + (+over * dimensions.over_rect.width) + (dimensions.over_rect.width/2))
                             .attr('cy', dimensions.match_rect.y + ((match * 2)+ dimensions.match_rect.offset) + (match * dimensions.match_rect.height) + (dimensions.match_rect.height/2))
