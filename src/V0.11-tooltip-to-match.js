@@ -232,7 +232,10 @@ d3.json("./data/result.json").then((data) => {
 
 
         // Box: Match
-        graph.append("rect")
+        graph.append("a")
+        .attr("xlink:href", data[+match+1]['match_url'])
+        .attr("target", "_blank")
+        .append("rect")
             .attr('x', dimensions.match_rect.x)
             .attr('y', dimensions.match_rect.y + ((+match * 2)+ dimensions.match_rect.offset) + (+match* dimensions.match_rect.height))
             .attr('width',dimensions.match_rect.width)
