@@ -303,7 +303,7 @@ d3.json("./data/result.json").then((data) => {
                                 .html(
                                 "<b>" +"Batting"+ "</b>:"+ battingTeam +
                                 "</br><b>Over:</b>" +  over_num +
-                                "</br><b>Score:</b>" + total_runs + "/" + wkt
+                                "</br><b>Scored (this over):</b>" + total_runs + "/" + wkt
                                 );
                             })
                         .on("mouseout", function (d) {
@@ -358,7 +358,7 @@ d3.json("./data/result.json").then((data) => {
                                 .html(
                                 "<b>" +"Batting"+ "</b>:"+ battingTeam +
                                 "</br><b>Over:</b>" +  over_num +
-                                "</br><b>Score:</b>" + total_runs + "/" + wkt
+                                "</br><b>Scored (this over):</b>" + total_runs + "/" + wkt
                                 );
                             })
                         .on("mouseout", function (d) {
