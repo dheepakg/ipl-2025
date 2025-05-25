@@ -1,5 +1,5 @@
-from py.matchInfo import getMatchInfo
-from py.overByOver import getScoreForEachOver
+from matchInfo import getMatchInfo
+from overByOver import getScoreForEachOver
 import json
 
 from pathlib import Path

@@ -36,6 +36,7 @@ def getMatchInfo(match_id: str) -> dict:
     match_num, venue = df_info.select(["match_id", "venue"]).unique().rows()[0]
 
     teams = df_info.select(["batting_team"]).rows()
+    print(match_id, teams)
 
     team1 = teams[0][0]
     team2 = teams[1][0]
