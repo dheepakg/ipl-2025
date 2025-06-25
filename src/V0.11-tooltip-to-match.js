@@ -1,5 +1,5 @@
 // create svg element
-var svg = d3.select(".canvas").append("svg").attr("width", 1400).attr("height", 3500);
+var svg = d3.select(".canvas").append("svg").attr("width", 1400).attr("height", 3300);
 
 dimensions  =   {   width: 1350, height:3250, curve:5,
                     origin: {x: 30, y: 50 },
@@ -272,15 +272,54 @@ d3.json("./data/result.json").then((data) => {
                 dimensions.match_rect.y + ((+match * 2)+ dimensions.match_rect.offset) + (+match* dimensions.match_rect.height) + (dimensions.match_rect.height/2) - 10);
         }
 
+        if (+match+1 === 74) {
+            graph.append("text")
+                .text( "Final")
+                .attr('x', dimensions.match_rect.x + (dimensions.match_rect.width/2))
+                .attr('y', dimensions.match_rect.y + ((+match * 2)+ dimensions.match_rect.offset) + (+match* dimensions.match_rect.height) + (dimensions.match_rect.height/2))
+                .attr('text-anchor', 'middle')
+                .attr("font-family", "monospace")
+                .attr("font-size", "10px");
+        }
+        else if (+match+1 === 73) {
+            graph.append("text")
+                .text( "Qualifier 2")
+                .attr('x', dimensions.match_rect.x + (dimensions.match_rect.width/2))
+                .attr('y', dimensions.match_rect.y + ((+match * 2)+ dimensions.match_rect.offset) + (+match* dimensions.match_rect.height) + (dimensions.match_rect.height/2))
+                .attr('text-anchor', 'middle')
+                .attr("font-family", "monospace")
+                .attr("font-size", "10px");
+        }
+        else if (+match+1 === 72) {
+            graph.append("text")
+                .text( "Eliminator")
+                .attr('x', dimensions.match_rect.x + (dimensions.match_rect.width/2))
+                .attr('y', dimensions.match_rect.y + ((+match * 2)+ dimensions.match_rect.offset) + (+match* dimensions.match_rect.height) + (dimensions.match_rect.height/2))
+                .attr('text-anchor', 'middle')
+                .attr("font-family", "monospace")
+                .attr("font-size", "10px");
+        }
+        else if (+match+1 === 71) {
+            graph.append("text")
+                .text( "Qualifier 1")
+                .attr('x', dimensions.match_rect.x + (dimensions.match_rect.width/2))
+                .attr('y', dimensions.match_rect.y + ((+match * 2)+ dimensions.match_rect.offset) + (+match* dimensions.match_rect.height) + (dimensions.match_rect.height/2))
+                .attr('text-anchor', 'middle')
+                .attr("font-family", "monospace")
+                .attr("font-size", "10px");
+        }
 
 
-        graph.append("text")
-            .text( +match+1)
-            .attr('x', dimensions.match_rect.x + (dimensions.match_rect.width/2))
-            .attr('y', dimensions.match_rect.y + ((+match * 2)+ dimensions.match_rect.offset) + (+match* dimensions.match_rect.height) + (dimensions.match_rect.height/2))
-            .attr('text-anchor', 'middle')
-            .attr("font-family", "monospace")
-            .attr("font-size", "10px");
+        else {
+            graph.append("text")
+                .text( +match+1)
+                .attr('x', dimensions.match_rect.x + (dimensions.match_rect.width/2))
+                .attr('y', dimensions.match_rect.y + ((+match * 2)+ dimensions.match_rect.offset) + (+match* dimensions.match_rect.height) + (dimensions.match_rect.height/2))
+                .attr('text-anchor', 'middle')
+                .attr("font-family", "monospace")
+                .attr("font-size", "10px");
+        }
+
 
         graph.append("text")
             .text( data[+match+1]['team1']['name'] + " vs " + data[+match+1]['team2']['name'])
