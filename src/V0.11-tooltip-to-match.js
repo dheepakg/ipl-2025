@@ -1,7 +1,7 @@
 // create svg element
-var svg = d3.select(".canvas").append("svg").attr("width", 1400).attr("height", 3000);
+var svg = d3.select(".canvas").append("svg").attr("width", 1400).attr("height", 3500);
 
-dimensions  =   {   width: 1350, height:2900, curve:5,
+dimensions  =   {   width: 1350, height:3250, curve:5,
                     origin: {x: 30, y: 50 },
                     over_rect: {height:30, width: 30, curve:10, offset:6 },
                     match_rect: {x:630, y: 50+50, offset:2 ,spacing:10 , width:100, height:40},
